@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Groove Therapy Jazz | Sacramento's Premier Smooth Jazz Band</title>
+<meta name="description" content="Groove Therapy is Sacramento's premier smooth jazz band for hire. Book us for weddings, wineries, corporate events, and private parties. Contemporary jazz, funk, and yacht rock.">
+<meta property="og:title" content="Groove Therapy Jazz | Sacramento's Premier Smooth Jazz Band">
+<meta property="og:description" content="Sacramento's premium smooth jazz experience. Book us for your next event.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://groovetherapy.live">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ─────────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  background: #0a0a0f;
+  color: #d4cfc6;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: #c9a84c; text-decoration: none; transition: color 0.3s; }
+a:hover { color: #e8c86c; }
+
+/* ── Typography ───────────────────────────────────────────────────────── */
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; color: #e8e0d0; }
+h2 { font-size: 2.4em; margin-bottom: 0.4em; }
+h3 { font-size: 1.4em; margin-bottom: 0.3em; }
+.section-subtitle {
+  color: #c9a84c;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1em;
+  margin-bottom: 2em;
+}
+.gold { color: #c9a84c; }
+
+/* ── Layout ───────────────────────────────────────────────────────────── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+section { padding: 100px 0; }
+
+/* ── Navigation ───────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3em;
+  color: #c9a84c;
+  letter-spacing: 1px;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: #a09880;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: #c9a84c; }
+.nav-cta {
+  background: #c9a84c;
+  color: #0a0a0f !important;
+  padding: 8px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.nav-cta:hover { background: #e8c86c; color: #0a0a0f !important; }
+
+/* Mobile nav */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span {
+  display: block; width: 24px; height: 2px;
+  background: #c9a84c; margin: 5px 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #0a0a18 0%, #1a1020 30%, #0f0a1a 70%, #0a0a0f 100%);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(201,168,76,0.08) 0%, transparent 60%);
+}
+/* Animated gold particles */
+.hero-particles {
+  position: absolute; inset: 0;
+  overflow: hidden;
+}
+.hero-particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: #c9a84c;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp 8s infinite;
+}
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(100vh) scale(0); }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(-20vh) scale(1); }
+}
+.hero-content { position: relative; z-index: 1; padding: 0 24px; }
+.hero h1 {
+  font-size: 4em;
+  line-height: 1.1;
+  margin-bottom: 0.2em;
+  background: linear-gradient(135deg, #e8e0d0, #c9a84c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.3em;
+  color: #a09880;
+  margin-bottom: 1.5em;
+}
+.hero-cta {
+  display: inline-block;
+  background: #c9a84c;
+  color: #0a0a0f;
+  padding: 16px 42px;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background 0.3s, transform 0.3s;
+}
+.hero-cta:hover { background: #e8c86c; color: #0a0a0f; transform: translateY(-2px); }
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #c9a84c;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+
+/* ── Divider ──────────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── About ────────────────────────────────────────────────────────────── */
+#about { background: #0a0a0f; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-text p { margin-bottom: 1.2em; color: #b0a890; }
+.about-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 1.5em;
+}
+.service-tag {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 6px;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #c9a84c;
+  transition: background 0.3s;
+}
+.service-tag:hover { background: rgba(201,168,76,0.15); }
+.about-visual {
+  position: relative;
+  background: linear-gradient(135deg, #1a1520, #0f0a18);
+  border-radius: 12px;
+  padding: 40px;
+  border: 1px solid rgba(201,168,76,0.1);
+  text-align: center;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.about-visual .eq-bars {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+  height: 120px;
+  margin-bottom: 24px;
+}
+.eq-bar {
+  width: 8px;
+  background: linear-gradient(180deg, #c9a84c, #8a6a2a);
+  border-radius: 4px 4px 0 0;
+  animation: eqBounce 1.2s ease-in-out infinite;
+}
+@keyframes eqBounce {
+  0%, 100% { height: 20px; }
+  50% { height: var(--h); }
+}
+.about-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.5em;
+  color: #c9a84c;
+  line-height: 1.4;
+}
+
+/* ── Media ────────────────────────────────────────────────────────────── */
+#media { background: #08080d; }
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.media-placeholder {
+  background: #12121a;
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 10px;
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #605840;
+  font-size: 0.95em;
+}
+.media-placeholder .play-icon {
+  width: 50px; height: 50px;
+  border: 2px solid #c9a84c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.media-placeholder .play-icon::after {
+  content: '';
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #c9a84c;
+  margin-left: 4px;
+}
+
+/* ── Band Members ─────────────────────────────────────────────────────── */
+#band { background: #0a0a0f; }
+.band-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.member-card {
+  background: linear-gradient(180deg, #12121a, #0e0e16);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.member-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-4px);
+}
+.member-photo {
+  height: 80px;
+  background: linear-gradient(135deg, #1a1520, #0f0a18);
+  position: relative;
+}
+.member-initial {
+  position: absolute;
+  bottom: -28px; left: 24px;
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, #c9a84c, #8a6a2a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4em;
+  color: #0a0a0f;
+  font-weight: 700;
+  border: 3px solid #0e0e16;
+}
+.member-info { padding: 40px 24px 24px; }
+.member-info h3 { color: #e8e0d0; margin-bottom: 2px; }
+.member-role {
+  color: #c9a84c;
+  font-size: 0.85em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.member-summary { color: #908870; font-size: 0.9em; line-height: 1.6; }
+.member-expand {
+  display: inline-block;
+  margin-top: 10px;
+  color: #c9a84c;
+  font-size: 0.85em;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  padding: 0;
+  transition: color 0.3s;
+}
+.member-expand:hover { color: #e8c86c; }
+.member-full {
+  display: none;
+  margin-top: 10px;
+  color: #908870;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+.member-full.open { display: block; }
+
+/* ── Contact / Book ───────────────────────────────────────────────────── */
+#contact { background: #08080d; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.contact-info h3 { margin-bottom: 16px; }
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #b0a890;
+}
+.contact-detail .icon {
+  width: 36px; height: 36px;
+  background: rgba(201,168,76,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9a84c;
+  font-size: 0.85em;
+  flex-shrink: 0;
+}
+.social-links { display: flex; gap: 12px; margin-top: 24px; }
+.social-link {
+  width: 40px; height: 40px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.social-link:hover { background: rgba(201,168,76,0.25); }
+.social-link svg { width: 18px; height: 18px; fill: #c9a84c; }
+
+/* Form */
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: flex; gap: 16px; }
+.form-row > * { flex: 1; }
+.form-group label {
+  display: block;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #807860;
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  background: #12121a;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: #d4cfc6;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95em;
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #c9a84c;
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select { cursor: pointer; }
+.form-group select option { background: #12121a; color: #d4cfc6; }
+.submit-btn {
+  background: #c9a84c;
+  color: #0a0a0f;
+  border: none;
+  padding: 14px 36px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  align-self: flex-start;
+}
+.submit-btn:hover { background: #e8c86c; transform: translateY(-2px); }
+.submit-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+.form-msg {
+  font-size: 0.9em;
+  padding: 10px 0;
+}
+.form-msg.success { color: #6ac96a; }
+.form-msg.error { color: #c96a6a; }
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+footer {
+  background: #06060a;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding: 40px 0;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+  color: #c9a84c;
+  margin-bottom: 8px;
+}
+footer p { color: #605840; font-size: 0.85em; }
+
+/* ── Animations ───────────────────────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px; left: 0; right: 0;
+    background: rgba(10,10,15,0.95);
+    flex-direction: column;
+    padding: 20px 24px;
+    gap: 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  .hero h1 { font-size: 2.5em; }
+  .hero-tagline { font-size: 1em; }
+  h2 { font-size: 1.8em; }
+  section { padding: 60px 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { flex-direction: column; gap: 16px; }
+  .band-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Groove Therapy</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#media">Listen</a></li>
+      <li><a href="#band">The Band</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Book Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-particles" id="hero-particles"></div>
+  </div>
+  <div class="hero-content">
+    <h1>Groove Therapy</h1>
+    <p class="hero-tagline">Sacramento's premium smooth jazz experience</p>
+    <a href="#contact" class="hero-cta">Book Us for Your Next Event</a>
+  </div>
+  <a href="#about" class="hero-scroll">Scroll</a>
+</section>
+
+<div class="divider"></div>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <h2>Feel Our <span class="gold">Groove</span></h2>
+        <p class="section-subtitle">Sacramento's premier contemporary jazz ensemble</p>
+        <p>Founded in 2022 to fill a void in the Sacramento music scene, Groove Therapy has emerged as the region's go-to smooth jazz band for hire. Our ensemble of saxophone, keyboards, guitar, bass, and drums delivers upbeat pop and funk-influenced smooth jazz hits blended with yacht rock standards.</p>
+        <p>Whether it's an intimate winery evening, a lively festival, or an elegant private affair, we bring the groove that gets people moving and sets the perfect mood.</p>
+        <div class="about-services">
+          <div class="service-tag">Weddings</div>
+          <div class="service-tag">Wineries</div>
+          <div class="service-tag">Corporate Events</div>
+          <div class="service-tag">Private Parties</div>
+          <div class="service-tag">Festivals</div>
+          <div class="service-tag">Fundraisers</div>
+        </div>
+      </div>
+      <div class="about-visual fade-in">
+        <div class="eq-bars">
+          <div class="eq-bar" style="--h: 80px; animation-delay: 0s;"></div>
+          <div class="eq-bar" style="--h: 110px; animation-delay: 0.15s;"></div>
+          <div class="eq-bar" style="--h: 60px; animation-delay: 0.3s;"></div>
+          <div class="eq-bar" style="--h: 100px; animation-delay: 0.1s;"></div>
+          <div class="eq-bar" style="--h: 70px; animation-delay: 0.25s;"></div>
+          <div class="eq-bar" style="--h: 115px; animation-delay: 0.05s;"></div>
+          <div class="eq-bar" style="--h: 55px; animation-delay: 0.35s;"></div>
+          <div class="eq-bar" style="--h: 90px; animation-delay: 0.2s;"></div>
+          <div class="eq-bar" style="--h: 75px; animation-delay: 0.4s;"></div>
+          <div class="eq-bar" style="--h: 105px; animation-delay: 0.12s;"></div>
+        </div>
+        <p class="about-quote">"Where smooth jazz meets good times"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Media -->
+<section id="media">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; margin-bottom: 48px;">
+      <h2>Listen & <span class="gold">Watch</span></h2>
+      <p class="section-subtitle">Hear the Groove Therapy sound</p>
+    </div>
+    <div class="media-grid fade-in" id="media-grid">
+      <div class="media-placeholder">
+        <div class="play-icon"></div>
+        <p>Video coming soon</p>
+      </div>
+      <div class="media-placeholder">
+        <div class="play-icon"></div>
+        <p>Video coming soon</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Band Members -->
+<section id="band">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; margin-bottom: 48px;">
+      <h2>Meet the <span class="gold">Band</span></h2>
+      <p class="section-subtitle">Five musicians, one unstoppable groove</p>
+    </div>
+    <div class="band-grid">
+
+      <div class="member-card fade-in">
+        <div class="member-photo" style="background: linear-gradient(135deg, #1a1828, #0f0a18);">
+          <div class="member-initial">K</div>
+        </div>
+        <div class="member-info">
+          <h3>Kim Peterson</h3>
+          <div class="member-role">Saxophone</div>
+          <p class="member-summary">A prodigy from day one, Kim Peterson began his musical career as a young man touring with the renowned Glenn Miller Orchestra. Since then, he has lived an international life across Belgium, Spain, and the US, performing throughout the world.</p>
+          <button class="member-expand" onclick="toggleBio(this)">Read more</button>
+          <div class="member-full">His musical adventures have taken him on tours of Turkey, Albania, Peru, Spain, and other countries. Currently, he composes commercial music for television broadcast, writes and produces his own music, and leads the international Latin Pop band La Puerta Azul. When not jamming with Groove Therapy, Kim, a multi-instrumentalist, also teaches and volunteers for local elementary school music programs in the Sacramento area.</div>
+        </div>
+      </div>
+
+      <div class="member-card fade-in">
+        <div class="member-photo" style="background: linear-gradient(135deg, #1a1520, #0f0a18);">
+          <div class="member-initial">M</div>
+        </div>
+        <div class="member-info">
+          <h3>Manuel Luz</h3>
+          <div class="member-role">Piano & Vocals</div>
+          <p class="member-summary">Manuel Luz has released five albums since 2001 and is widely regarded as one of Sacramento's most versatile keyboardists. He brings depth, soul, and musicality to every Groove Therapy performance.</p>
+          <button class="member-expand" onclick="toggleBio(this)">Read more</button>
+          <div class="member-full">Manuel also performs as a solo pianist, with his trio ML3, and as the duo Waiting for Sunday. Beyond music, he is the inventor of the WalkaBout Drum&trade; and a published author. His wide-ranging musical talents make him an essential voice in the Groove Therapy sound.</div>
+        </div>
+      </div>
+
+      <div class="member-card fade-in">
+        <div class="member-photo" style="background: linear-gradient(135deg, #18151a, #0f0a18);">
+          <div class="member-initial">S</div>
+        </div>
+        <div class="member-info">
+          <h3>Steve Brainard</h3>
+          <div class="member-role">Guitar</div>
+          <p class="member-summary">Accomplished musician and educator, Steve Brainard is the guitar muscle behind Groove Therapy. He has played regularly in different bands throughout the Sacramento area for decades, including worship bands and other musical settings, notably a Rush cover band.</p>
+          <button class="member-expand" onclick="toggleBio(this)">Read more</button>
+          <div class="member-full">Formerly in the software industry, Steve and his wife Krissy currently own and operate the "Music Lab," a thriving music school and recording facility in Folsom, California, featuring 15 talented instructors servicing over 250 students weekly.</div>
+        </div>
+      </div>
+
+      <div class="member-card fade-in">
+        <div class="member-photo" style="background: linear-gradient(135deg, #1a1620, #0f0a18);">
+          <div class="member-initial">M</div>
+        </div>
+        <div class="member-info">
+          <h3>Matt Sawhill</h3>
+          <div class="member-role">Bass</div>
+          <p class="member-summary">Matt Sawhill has been a fixture in the Sacramento music scene for over forty years. He has backed up a variety of artists including Christian icon Bob Kilpatrick, Eric Evans Project, Suzanne Brooks, and the Manuel Luz Trio.</p>
+          <button class="member-expand" onclick="toggleBio(this)">Read more</button>
+          <div class="member-full">In addition to performing with dozens of churches around Northern California, Matt has played in countless musical settings across the region. He anchors the groove in Groove Therapy, bringing four decades of rock-solid bass work to every performance.</div>
+        </div>
+      </div>
+
+      <div class="member-card fade-in">
+        <div class="member-photo" style="background: linear-gradient(135deg, #1a1418, #0f0a18);">
+          <div class="member-initial">K</div>
+        </div>
+        <div class="member-info">
+          <h3>Kevin Quaintance</h3>
+          <div class="member-role">Drums & Founder</div>
+          <p class="member-summary">Kevin Quaintance is a classically trained percussionist who began studying at age 8. With over three decades of experience performing rock, jazz, and gospel, he founded Groove Therapy in 2022.</p>
+          <button class="member-expand" onclick="toggleBio(this)">Read more</button>
+          <div class="member-full">Driven by his passion for smooth contemporary jazz, Kevin assembled Groove Therapy to fill a void in the Sacramento music scene, uniting some of the region's finest musicians under one groove. He continues to lead the band from behind the kit, bringing energy and precision to every performance.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Contact / Book -->
+<section id="contact">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; margin-bottom: 48px;">
+      <h2>Book <span class="gold">Groove Therapy</span></h2>
+      <p class="section-subtitle">Let's make your event unforgettable</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <h3>Get in Touch</h3>
+        <p style="color:#908870; margin-bottom: 24px;">Ready to bring smooth jazz to your next event? Fill out the form or reach us directly. We'd love to hear from you.</p>
+        <div class="contact-detail">
+          <div class="icon">@</div>
+          <a href="mailto:info@groovetherapy.live">info@groovetherapy.live</a>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">&#9742;</div>
+          <a href="tel:+19256999749">(925) 699-9749</a>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">&#9906;</div>
+          <span>Sacramento, California</span>
+        </div>
+        <div class="social-links">
+          <a href="https://www.facebook.com/groovetherapyjazz" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/groovetherapyjazz" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <form class="contact-form fade-in" id="contact-form" onsubmit="submitContact(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-name">Name *</label>
+            <input type="text" id="c-name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="c-email">Email *</label>
+            <input type="email" id="c-email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-phone">Phone</label>
+            <input type="tel" id="c-phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="c-event">Event Type</label>
+            <select id="c-event" name="eventType">
+              <option value="">Select...</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Corporate Event">Corporate Event</option>
+              <option value="Private Party">Private Party</option>
+              <option value="Winery">Winery</option>
+              <option value="Festival">Festival</option>
+              <option value="Fundraiser">Fundraiser</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="c-date">Event Date</label>
+          <input type="date" id="c-date" name="eventDate">
+        </div>
+        <div class="form-group">
+          <label for="c-msg">Message *</label>
+          <textarea id="c-msg" name="message" required placeholder="Tell us about your event..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submit-btn">Send Inquiry</button>
+        <div class="form-msg" id="form-msg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">Groove Therapy Jazz</div>
+    <p>Sacramento, California &middot; &copy; 2022&ndash;2025 Groove Therapy. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// ── Hero particles ────────────────────────────────────────────────────────
+(function() {
+  const container = document.getElementById('hero-particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'hero-particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDelay = Math.random() * 8 + 's';
+    p.style.animationDuration = (6 + Math.random() * 6) + 's';
+    container.appendChild(p);
+  }
+})();
+
+// ── Mobile nav toggle ─────────────────────────────────────────────────────
+document.getElementById('nav-toggle').addEventListener('click', function() {
+  this.classList.toggle('active');
+  document.getElementById('nav-links').classList.toggle('open');
+});
+// Close nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('nav-toggle').classList.remove('active');
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
+
+// ── Scroll fade-in ────────────────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── Bio expand/collapse ───────────────────────────────────────────────────
+function toggleBio(btn) {
+  const full = btn.nextElementSibling;
+  full.classList.toggle('open');
+  btn.textContent = full.classList.contains('open') ? 'Read less' : 'Read more';
+}
+
+// ── Contact form ──────────────────────────────────────────────────────────
+async function submitContact(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const msg = document.getElementById('form-msg');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  msg.textContent = '';
+  msg.className = 'form-msg';
+
+  const body = {
+    name: document.getElementById('c-name').value,
+    email: document.getElementById('c-email').value,
+    phone: document.getElementById('c-phone').value,
+    eventType: document.getElementById('c-event').value,
+    eventDate: document.getElementById('c-date').value,
+    message: document.getElementById('c-msg').value,
+  };
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    if (res.ok) {
+      msg.textContent = 'Thank you! We\'ll be in touch soon.';
+      msg.className = 'form-msg success';
+      document.getElementById('contact-form').reset();
+    } else {
+      msg.textContent = data.error || 'Something went wrong. Please try again.';
+      msg.className = 'form-msg error';
+    }
+  } catch {
+    msg.textContent = 'Network error. Please email us directly.';
+    msg.className = 'form-msg error';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Send Inquiry';
+}
+</script>
+</body>
+</html>
