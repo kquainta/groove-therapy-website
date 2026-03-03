@@ -2,22 +2,38 @@
 
 from __future__ import annotations
 
+import base64
+import json
 import os
-import smtplib
 from email.mime.text import MIMEText
 
 from flask import Flask, jsonify, render_template, request
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
 
 # ── Config ──────────────────────────────────────────────────────────────────
-# Set these environment variables for the contact form to send email.
-# If not set, form submissions are logged to the console instead.
-SMTP_HOST = os.environ.get("SMTP_HOST", "")
-SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
-SMTP_USER = os.environ.get("SMTP_USER", "")
-SMTP_PASS = os.environ.get("SMTP_PASS", "")
-CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "info@groovetherapy.live")
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "groovetherapysacto@gmail.com")
+
+# Gmail OAuth credentials (injected via env vars at deploy time)
+GMAIL_REFRESH_TOKEN = os.environ.get("GMAIL_REFRESH_TOKEN", "")
+GMAIL_CLIENT_ID = os.environ.get("GMAIL_CLIENT_ID", "")
+GMAIL_CLIENT_SECRET = os.environ.get("GMAIL_CLIENT_SECRET", "")
 
 app = Flask(__name__)
+
+
+def get_gmail_service():
+    creds = Credentials(
+        token=None,
+        refresh_token=GMAIL_REFRESH_TOKEN,
+        token_uri="https://oauth2.googleapis.com/token",
+        client_id=GMAIL_CLIENT_ID,
+        client_secret=GMAIL_CLIENT_SECRET,
+        scopes=["https://www.googleapis.com/auth/gmail.modify"]
+    )
+    creds.refresh(Request())
+    return build("gmail", "v1", credentials=creds)
 
 
 # ── Routes ──────────────────────────────────────────────────────────────────
@@ -40,31 +56,35 @@ def contact():
         return jsonify({"error": "Name, email, and message are required."}), 400
 
     body = (
+        f"New booking inquiry from the Groove Therapy website!\n\n"
         f"Name: {name}\n"
         f"Email: {email}\n"
         f"Phone: {phone}\n"
         f"Event Type: {event_type}\n"
         f"Event Date: {event_date}\n"
-        f"---\n{message}"
+        f"{'─'*40}\n"
+        f"{message}"
     )
 
-    if SMTP_HOST and SMTP_USER:
+    if GMAIL_REFRESH_TOKEN and GMAIL_CLIENT_ID:
         try:
+            gmail = get_gmail_service()
             msg = MIMEText(body)
-            msg["Subject"] = f"Groove Therapy Inquiry from {name}"
-            msg["From"] = SMTP_USER
+            msg["Subject"] = f"🎷 Groove Therapy Inquiry from {name}"
+            msg["From"] = "groovetherapysacto@gmail.com"
             msg["To"] = CONTACT_EMAIL
             msg["Reply-To"] = email
-            with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as srv:
-                srv.starttls()
-                srv.login(SMTP_USER, SMTP_PASS)
-                srv.send_message(msg)
+            raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+            gmail.users().messages().send(userId="me", body={"raw": raw}).execute()
+            print(f"[CONTACT] Email sent for inquiry from {name} ({email})")
         except Exception as exc:
+            import traceback
             print(f"[EMAIL ERROR] {exc}")
+            print(traceback.format_exc())
             return jsonify({"error": "Failed to send. Please email us directly."}), 500
     else:
         print(f"\n{'='*50}")
-        print("NEW CONTACT FORM SUBMISSION")
+        print("NEW CONTACT FORM SUBMISSION (no Gmail creds configured)")
         print(f"{'='*50}")
         print(body)
         print(f"{'='*50}\n")

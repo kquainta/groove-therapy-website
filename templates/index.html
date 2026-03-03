@@ -290,6 +290,43 @@ nav {
   margin-left: 4px;
 }
 
+/* ── Audio Players ────────────────────────────────────────────────────── */
+.audio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.audio-card {
+  background: #12121a;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.audio-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-2px);
+}
+.audio-card h4 {
+  color: #e8e0d0;
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+.audio-card .audio-artist {
+  color: #c9a84c;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.audio-card audio {
+  width: 100%;
+  height: 36px;
+  accent-color: #c9a84c;
+}
+
 /* ── Band Members ─────────────────────────────────────────────────────── */
 #band { background: #0a0a0f; }
 .band-grid {
@@ -312,6 +349,9 @@ nav {
   height: 80px;
   background: linear-gradient(135deg, #1a1520, #0f0a18);
   position: relative;
+}
+.member-photo.has-photo {
+  height: 220px;
 }
 .member-initial {
   position: absolute;
@@ -515,7 +555,7 @@ footer p { color: #605840; font-size: 0.85em; }
 <!-- Navigation -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Groove Therapy</a>
+    <a href="#" class="nav-logo"><img src="/static/images/logo.png" alt="Groove Therapy" style="height: 36px; width: auto; vertical-align: middle; filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1); drop-shadow(0 1px 3px rgba(0,0,0,0.8));"></a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -535,6 +575,7 @@ footer p { color: #605840; font-size: 0.85em; }
     <div class="hero-particles" id="hero-particles"></div>
   </div>
   <div class="hero-content">
+    <img src="/static/images/logo.png" alt="Groove Therapy" style="height: 120px; width: auto; margin-bottom: 24px; display: block; margin-left: auto; margin-right: auto; filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1);">
     <h1>Groove Therapy</h1>
     <p class="hero-tagline">Sacramento's premium smooth jazz experience</p>
     <a href="#contact" class="hero-cta">Book Us for Your Next Event</a>
@@ -543,6 +584,19 @@ footer p { color: #605840; font-size: 0.85em; }
 </section>
 
 <div class="divider"></div>
+
+<!-- Featured Band Photo -->
+<section id="featured-photo" style="padding: 0; margin: 0; line-height: 0;">
+  <div style="position: relative; width: 100%; overflow: hidden; max-height: 520px;">
+    <img src="/static/images/gala-banner.png" alt="Groove Therapy live at the Starry Night Gala"
+      style="width: 100%; height: 100%; max-height: 520px; object-fit: cover; object-position: center 30%; display: block;" />
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 32px;
+      background: linear-gradient(transparent, rgba(10,10,15,0.85));
+      font-family: inherit; color: #c9a84c; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;">
+      Live at the Starry Night Gala &mdash; Greater Folsom Community
+    </div>
+  </div>
+</section>
 
 <!-- About -->
 <section id="about">
@@ -590,10 +644,35 @@ footer p { color: #605840; font-size: 0.85em; }
       <h2>Listen & <span class="gold">Watch</span></h2>
       <p class="section-subtitle">Hear the Groove Therapy sound</p>
     </div>
+    <div class="audio-grid fade-in">
+      <div class="audio-card">
+        <h4>Burnin'</h4>
+        <div class="audio-artist">Paul Taylor</div>
+        <audio controls preload="none">
+          <source src="/static/audio/Burnin clip.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="audio-card">
+        <h4>Never Too Much</h4>
+        <div class="audio-artist">Paul Jackson Jr. &mdash; feat. Tess Andrea</div>
+        <audio controls preload="none">
+          <source src="/static/audio/Never Too Much clip.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="audio-card">
+        <h4>Believe</h4>
+        <div class="audio-artist">Spyro Gyra</div>
+        <audio controls preload="none">
+          <source src="/static/audio/Believe clip.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
     <div class="media-grid fade-in" id="media-grid">
-      <div class="media-placeholder">
-        <div class="play-icon"></div>
-        <p>Video coming soon</p>
+      <div class="media-placeholder" style="aspect-ratio: unset; padding: 0; overflow: hidden; background: #000;">
+        <video controls preload="none" poster="https://storage.googleapis.com/groove-therapy-media/images/peg-thumbnail.jpg" style="width: 100%; display: block;">
+          <source src="https://storage.googleapis.com/groove-therapy-media/video/peg-clip.mp4" type="video/mp4">
+        </video>
+        <p style="padding: 12px 16px; color: #c9a84c; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; margin: 0;">Peg — Steely Dan</p>
       </div>
       <div class="media-placeholder">
         <div class="play-icon"></div>
@@ -615,8 +694,7 @@ footer p { color: #605840; font-size: 0.85em; }
     <div class="band-grid">
 
       <div class="member-card fade-in">
-        <div class="member-photo" style="background: linear-gradient(135deg, #1a1828, #0f0a18);">
-          <div class="member-initial">K</div>
+        <div class="member-photo has-photo" style="background: url('/static/images/kim-peterson.jpg') center/cover no-repeat;">
         </div>
         <div class="member-info">
           <h3>Kim Peterson</h3>
@@ -628,12 +706,11 @@ footer p { color: #605840; font-size: 0.85em; }
       </div>
 
       <div class="member-card fade-in">
-        <div class="member-photo" style="background: linear-gradient(135deg, #1a1520, #0f0a18);">
-          <div class="member-initial">M</div>
+        <div class="member-photo has-photo" style="background: url('/static/images/manuel.webp') center/cover no-repeat;">
         </div>
         <div class="member-info">
           <h3>Manuel Luz</h3>
-          <div class="member-role">Piano & Vocals</div>
+          <div class="member-role">Piano</div>
           <p class="member-summary">Manuel Luz has released five albums since 2001 and is widely regarded as one of Sacramento's most versatile keyboardists. He brings depth, soul, and musicality to every Groove Therapy performance.</p>
           <button class="member-expand" onclick="toggleBio(this)">Read more</button>
           <div class="member-full">Manuel also performs as a solo pianist, with his trio ML3, and as the duo Waiting for Sunday. Beyond music, he is the inventor of the WalkaBout Drum&trade; and a published author. His wide-ranging musical talents make him an essential voice in the Groove Therapy sound.</div>
@@ -641,21 +718,19 @@ footer p { color: #605840; font-size: 0.85em; }
       </div>
 
       <div class="member-card fade-in">
-        <div class="member-photo" style="background: linear-gradient(135deg, #18151a, #0f0a18);">
-          <div class="member-initial">S</div>
+        <div class="member-photo has-photo" style="background: url('/static/images/paul.jpeg') center/contain no-repeat; background-color: #1a1520;">
         </div>
         <div class="member-info">
-          <h3>Steve Brainard</h3>
+          <h3>Paul Sanders</h3>
           <div class="member-role">Guitar</div>
-          <p class="member-summary">Accomplished musician and educator, Steve Brainard is the guitar muscle behind Groove Therapy. He has played regularly in different bands throughout the Sacramento area for decades, including worship bands and other musical settings, notably a Rush cover band.</p>
+          <p class="member-summary">Paul Sanders is a seasoned and versatile guitarist, performing across rock, jazz, country, pop, and contemporary Christian styles. With 30+ years of experience, he brings both professionalism and passion to every stage he plays.</p>
           <button class="member-expand" onclick="toggleBio(this)">Read more</button>
-          <div class="member-full">Formerly in the software industry, Steve and his wife Krissy currently own and operate the "Music Lab," a thriving music school and recording facility in Folsom, California, featuring 15 talented instructors servicing over 250 students weekly.</div>
+          <div class="member-full">Fortunate to have formal musical education, Paul has participated in memorable events featuring a 40-piece orchestra and occasional session work on commercial jingles. He is also experienced as a music director, leading worship teams and arranging music in a church setting. His depth of experience, musical leadership, and dynamic playing make him an essential voice in Groove Therapy.</div>
         </div>
       </div>
 
       <div class="member-card fade-in">
-        <div class="member-photo" style="background: linear-gradient(135deg, #1a1620, #0f0a18);">
-          <div class="member-initial">M</div>
+        <div class="member-photo has-photo" style="background: url('/static/images/matt.jpg') center/cover no-repeat;">
         </div>
         <div class="member-info">
           <h3>Matt Sawhill</h3>
@@ -667,8 +742,7 @@ footer p { color: #605840; font-size: 0.85em; }
       </div>
 
       <div class="member-card fade-in">
-        <div class="member-photo" style="background: linear-gradient(135deg, #1a1418, #0f0a18);">
-          <div class="member-initial">K</div>
+        <div class="member-photo has-photo" style="background: url('/static/images/kevin.jpeg') center/cover no-repeat;">
         </div>
         <div class="member-info">
           <h3>Kevin Quaintance</h3>
@@ -766,7 +840,7 @@ footer p { color: #605840; font-size: 0.85em; }
 <footer>
   <div class="container">
     <div class="footer-logo">Groove Therapy Jazz</div>
-    <p>Sacramento, California &middot; &copy; 2022&ndash;2025 Groove Therapy. All rights reserved.</p>
+    <p>Sacramento, California &middot; &copy; 2022&ndash;2026 Groove Therapy. All rights reserved.</p>
   </div>
 </footer>
 
