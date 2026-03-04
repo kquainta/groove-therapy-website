@@ -8,8 +8,9 @@ import os
 from email.mime.text import MIMEText
 from pathlib import Path
 
-from flask import Flask, jsonify, render_template, request, abort
+from flask import Flask, jsonify, render_template, request, abort, session, redirect, url_for
 import markdown
+from functools import wraps
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -23,6 +24,19 @@ GMAIL_CLIENT_ID = os.environ.get("GMAIL_CLIENT_ID", "")
 GMAIL_CLIENT_SECRET = os.environ.get("GMAIL_CLIENT_SECRET", "")
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", "groove-therapy-dev-key-change-in-production")
+
+
+# ── Authentication ─────────────────────────────────────────────────────────
+BPLAN_PASSWORD = os.environ.get("BPLAN_PASSWORD", "Groovers")
+
+def require_bplan_auth(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get("bplan_authenticated"):
+            return redirect(url_for("bplan_login"))
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 def get_gmail_service():
@@ -44,12 +58,34 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/bplan/login", methods=["GET", "POST"])
+def bplan_login():
+    """Login page for business plan."""
+    if request.method == "POST":
+        password = request.form.get("password", "")
+        if password == BPLAN_PASSWORD:
+            session["bplan_authenticated"] = True
+            return redirect(url_for("business_plan"))
+        else:
+            return render_template("bplan_login.html", error="Incorrect password")
+    return render_template("bplan_login.html")
+
+
+@app.route("/bplan/logout")
+def bplan_logout():
+    """Logout from business plan."""
+    session.pop("bplan_authenticated", None)
+    return redirect(url_for("bplan_login"))
+
+
 @app.route("/bplan")
+@require_bplan_auth
 def business_plan():
     return render_template("business_plan.html")
 
 
 @app.route("/bplan/<slug>")
+@require_bplan_auth
 def business_plan_doc(slug):
     """Render a business plan markdown document as HTML."""
     # Sanitize slug to prevent directory traversal

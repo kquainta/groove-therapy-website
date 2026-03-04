@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Plan Access | Groove Therapy</title>
+<link rel="icon" type="image/png" href="/static/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  background: linear-gradient(135deg, #0a0a18 0%, #1a1020 30%, #0f0a1a 70%, #0a0a0f 100%);
+  color: #d4cfc6;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+}
+
+.login-box {
+  background: #12121a;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 12px;
+  padding: 48px;
+  text-align: center;
+}
+
+.login-logo {
+  margin-bottom: 32px;
+}
+.login-logo img {
+  height: 80px;
+  width: auto;
+  filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1);
+  drop-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8em;
+  color: #e8e0d0;
+  margin-bottom: 0.3em;
+}
+
+.subtitle {
+  color: #a09880;
+  font-size: 0.95em;
+  margin-bottom: 32px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #807860;
+  margin-bottom: 8px;
+}
+
+input[type="password"] {
+  width: 100%;
+  background: #0a0a0f;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: #d4cfc6;
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+input[type="password"]:focus {
+  outline: none;
+  border-color: #c9a84c;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #c9a84c;
+  color: #0a0a0f;
+  border: none;
+  padding: 12px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.submit-btn:hover {
+  background: #e8c86c;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.error-message {
+  background: rgba(201,100,100,0.1);
+  border: 1px solid rgba(201,100,100,0.3);
+  color: #ff6b6b;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  font-size: 0.9em;
+}
+
+.help-text {
+  color: #605840;
+  font-size: 0.85em;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 32px 24px;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-logo">
+      <img src="/static/images/logo.png" alt="Groove Therapy">
+    </div>
+    <h1>Business Plan</h1>
+    <p class="subtitle">Password Protected</p>
+    
+    {% if error %}
+    <div class="error-message">
+      {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+      <div class="form-group">
+        <label for="password">Enter Password</label>
+        <input type="password" id="password" name="password" required autofocus placeholder="••••••••">
+      </div>
+      <button type="submit" class="submit-btn">Access Plan</button>
+    </form>
+
+    <div class="help-text">
+      Exclusive business plan for Groove Therapy leadership & partners
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
