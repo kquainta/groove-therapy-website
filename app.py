@@ -42,6 +42,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/bplan")
+def business_plan():
+    return render_template("business_plan.html")
+
+
 @app.route("/api/contact", methods=["POST"])
 def contact():
     data = request.json or {}

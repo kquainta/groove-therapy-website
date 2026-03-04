@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Groove Therapy Business Plan | 12-Month Growth Strategy</title>
+<meta name="description" content="Groove Therapy's comprehensive 12-month business plan for growth, including mailing list, social media, venue bookings, corporate gigs, and festival planning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  background: #0a0a0f;
+  color: #d4cfc6;
+  line-height: 1.7;
+}
+a { color: #c9a84c; text-decoration: none; transition: color 0.3s; }
+a:hover { color: #e8c86c; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; color: #e8e0d0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* Navigation */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3em;
+  color: #c9a84c;
+  letter-spacing: 1px;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: #a09880;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.nav-links a:hover { color: #c9a84c; }
+.nav-back {
+  background: rgba(201,168,76,0.1);
+  color: #c9a84c !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+.nav-back:hover { background: rgba(201,168,76,0.2); }
+
+/* Hero */
+header {
+  margin-top: 70px;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0a0a18 0%, #1a1020 30%, #0f0a1a 70%, #0a0a0f 100%);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  text-align: center;
+}
+header h1 {
+  font-size: 3em;
+  margin-bottom: 0.3em;
+  background: linear-gradient(135deg, #e8e0d0, #c9a84c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+header p {
+  font-size: 1.2em;
+  color: #a09880;
+  margin-bottom: 0.5em;
+}
+.plan-meta {
+  color: #605840;
+  font-size: 0.9em;
+}
+
+/* Main content */
+main { padding: 60px 0; }
+section { margin-bottom: 80px; }
+section h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #c9a84c;
+}
+.section-intro {
+  color: #908870;
+  font-size: 1.05em;
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+/* Document grid */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.doc-card {
+  background: #12121a;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 8px;
+  padding: 24px;
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.doc-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-2px);
+}
+.doc-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: #e8e0d0;
+}
+.doc-card .doc-type {
+  display: inline-block;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: #c9a84c;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.doc-card p {
+  color: #908870;
+  font-size: 0.95em;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+.doc-card .doc-link {
+  display: inline-block;
+  background: rgba(201,168,76,0.1);
+  color: #c9a84c;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+.doc-card .doc-link:hover {
+  background: rgba(201,168,76,0.25);
+}
+
+/* Featured docs */
+.featured-docs {
+  background: linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.03) 100%);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+.featured-docs h3 {
+  margin-bottom: 16px;
+}
+.featured-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  list-style: none;
+}
+.featured-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.featured-list li:last-child {
+  border-bottom: none;
+}
+.featured-list a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c9a84c;
+  font-weight: 500;
+}
+.featured-list a::before {
+  content: '▶';
+  font-size: 0.7em;
+}
+
+/* Sections */
+.section-strategy { }
+.section-tools { }
+.section-quick-links {
+  background: #08080d;
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.stat-box {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+.stat-number {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #c9a84c;
+  margin-bottom: 8px;
+}
+.stat-label {
+  color: #a09880;
+  font-size: 0.9em;
+}
+
+/* Footer */
+footer {
+  background: #06060a;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding: 40px 0;
+  text-align: center;
+  color: #605840;
+  font-size: 0.85em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 { font-size: 2em; }
+  .doc-grid { grid-template-columns: 1fr; }
+  .quick-stats { grid-template-columns: 1fr; }
+  main { padding: 40px 0; }
+  section { margin-bottom: 50px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Groove Therapy</a>
+    <ul class="nav-links">
+      <li><a href="/" class="nav-back">← Back to Website</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <h1>Business Plan</h1>
+    <p>12-Month Growth Strategy for Groove Therapy</p>
+    <div class="plan-meta">
+      Complete roadmap for building Sacramento's premier jazz band
+      <br>
+      Created: March 4, 2026 | Updated regularly
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main>
+  <div class="container">
+    <!-- Quick Stats -->
+    <div class="section-quick-links">
+      <h2 style="margin-bottom: 32px;">12-Month Targets</h2>
+      <div class="quick-stats">
+        <div class="stat-box">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Gigs Per Month</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Mailing List Subscribers</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">1,000+</div>
+          <div class="stat-label">Social Media Followers</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Corporate Gigs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Start -->
+    <section>
+      <h2>👋 Start Here</h2>
+      <p class="section-intro">New to the plan? Start with the Quick Start guide for the next 90 days of actionable steps.</p>
+      <div class="featured-docs">
+        <h3>Essential First Reads</h3>
+        <ul class="featured-list">
+          <li><a href="/static/business-plan/00_QUICK_START.md" target="_blank">Quick Start Guide (90 Days)</a></li>
+          <li><a href="/static/business-plan/01_EXECUTIVE_SUMMARY.md" target="_blank">Executive Summary</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Strategy Documents -->
+    <section class="section-strategy">
+      <h2>📋 Strategy Documents</h2>
+      <p class="section-intro">Complete guides for each pillar of the business plan, from mailing lists to festival planning.</p>
+      <div class="doc-grid">
+        <div class="doc-card">
+          <span class="doc-type">📧 Mailing List</span>
+          <h3>Mailing List Growth</h3>
+          <p>Build and maintain your direct fan channel. Grow from 0 → 500+ engaged subscribers with welcome sequences, monthly newsletters, and growth hacks.</p>
+          <a href="/static/business-plan/02_MAILING_LIST_STRATEGY.md" target="_blank" class="doc-link">Read Strategy →</a>
+        </div>
+        <div class="doc-card">
+          <span class="doc-type">📱 Social Media</span>
+          <h3>Social Media Presence</h3>
+          <p>Facebook & Instagram strategy with content calendar, engagement tactics, and your approval workflow. Build 1,000+ followers with consistent, quality content.</p>
+          <a href="/static/business-plan/03_SOCIAL_MEDIA_STRATEGY.md" target="_blank" class="doc-link">Read Strategy →</a>
+        </div>
+        <div class="doc-card">
+          <span class="doc-type">🎷 Venues</span>
+          <h3>Venue Booking</h3>
+          <p>How to book 2+ gigs per month at restaurants, lounges, and jazz clubs. Includes cold outreach templates, rate setting, and relationship building.</p>
+          <a href="/static/business-plan/04_VENUE_BOOKING_STRATEGY.md" target="_blank" class="doc-link">Read Strategy →</a>
+        </div>
+        <div class="doc-card">
+          <span class="doc-type">💼 Corporate</span>
+          <h3>Corporate Gigs</h3>
+          <p>Break into the high-value corporate event circuit. Includes prospecting strategies, sales process, and how to close $1,500-3,000+ bookings.</p>
+          <a href="/static/business-plan/05_CORPORATE_GIG_STRATEGY.md" target="_blank" class="doc-link">Read Strategy →</a>
+        </div>
+        <div class="doc-card">
+          <span class="doc-type">🎪 Festival</span>
+          <h3>Sacramento Jazz Festival</h3>
+          <p>Plan and execute a flagship festival event. Complete roadmap for Fall 2026 or Spring 2027, including venue, sponsorships, marketing, and artist recruitment.</p>
+          <a href="/static/business-plan/06_SACRAMENTO_JAZZ_FESTIVAL_PLAN.md" target="_blank" class="doc-link">Read Strategy →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Specifications -->
+    <section class="section-tools">
+      <h2>🛠 Tool Specifications</h2>
+      <p class="section-intro">Technical design and implementation guides for the systems that support your business plan.</p>
+      <div class="doc-grid">
+        <div class="doc-card">
+          <span class="doc-type">Tool Spec</span>
+          <h3>Mailing List System</h3>
+          <p>Technical specifications for your mailing list platform. Covers Mailchimp setup, website integration, welcome sequences, and migration path as you scale.</p>
+          <a href="/static/business-plan/TOOL_MAILING_LIST_SPEC.md" target="_blank" class="doc-link">Read Spec →</a>
+        </div>
+        <div class="doc-card">
+          <span class="doc-type">Tool Spec</span>
+          <h3>Social Media Coordination</h3>
+          <p>Content calendar + approval workflow. Design for Google Sheets (MVP) with upgrade path to Buffer. Includes posting schedule, analytics tracking, and engagement protocols.</p>
+          <a href="/static/business-plan/TOOL_SOCIAL_MEDIA_SPEC.md" target="_blank" class="doc-link">Read Spec →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section>
+      <h2>📅 Implementation Timeline</h2>
+      <p class="section-intro">Phased rollout over 12 months with clear milestones and success metrics.</p>
+      <div style="background: #12121a; border: 1px solid rgba(201,168,76,0.15); border-radius: 8px; padding: 32px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+          <div>
+            <h3 style="color: #c9a84c; margin-bottom: 12px;">Phase 1: Foundation</h3>
+            <p style="color: #908870; font-size: 0.9em;">Weeks 1-4<br>Mailing list, social media, venue research</p>
+          </div>
+          <div>
+            <h3 style="color: #c9a84c; margin-bottom: 12px;">Phase 2: Growth</h3>
+            <p style="color: #908870; font-size: 0.9em;">Months 2-3<br>Content momentum, 1-2 gigs/month</p>
+          </div>
+          <div>
+            <h3 style="color: #c9a84c; margin-bottom: 12px;">Phase 3: Scale</h3>
+            <p style="color: #908870; font-size: 0.9em;">Months 4-6<br>Corporate gigs, 2+ gigs/month</p>
+          </div>
+          <div>
+            <h3 style="color: #c9a84c; margin-bottom: 12px;">Phase 4: Execute</h3>
+            <p style="color: #908870; font-size: 0.9em;">Months 7-12<br>Festival launch, sustained growth</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Documents -->
+    <section>
+      <h2>📚 All Documents</h2>
+      <p class="section-intro">Complete list of all business plan documents for easy reference.</p>
+      <div style="background: #12121a; border: 1px solid rgba(201,168,76,0.15); border-radius: 8px; padding: 32px;">
+        <ul style="list-style: none;">
+          <li style="padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.1);"><a href="/static/business-plan/00_QUICK_START.md" target="_blank">00_QUICK_START.md</a> — Your roadmap for the next 90 days</li>
+          <li style="padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.1);"><a href="/static/business-plan/01_EXECUTIVE_SUMMARY.md" target="_blank">01_EXECUTIVE_SUMMARY.md</a> — Big picture overview and goals</li>
+          <li style="padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.1);"><a href="/static/business-plan/02_MAILING_LIST_STRATEGY.md" target="_blank">02_MAILING_LIST_STRATEGY.md</a> — Mailing list growth strategy</li>
+          <li style="padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.1);"><a href="/static/business-plan/03_SOCIAL_MEDIA_STRATEGY.md" target="_blank">03_SOCIAL_MEDIA_STRATEGY.md</a> — Facebook & Instagram strategy</li>
+          <li style="padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.1);"><a href="/static/business-plan/04_VENUE_BOOKING_STRATEGY.md" target="_blank">04_VENUE_BOOKING_STRATEGY.md</a> — Booking venues strategy</li>
+          <li style="padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.1);"><a href="/static/business-plan/05_CORPORATE_GIG_STRATEGY.md" target="_blank">05_CORPORATE_GIG_STRATEGY.md</a> — Corporate event strategy</li>
+          <li style="padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.1);"><a href="/static/business-plan/06_SACRAMENTO_JAZZ_FESTIVAL_PLAN.md" target="_blank">06_SACRAMENTO_JAZZ_FESTIVAL_PLAN.md</a> — Festival planning guide</li>
+          <li style="padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.1);"><a href="/static/business-plan/TOOL_MAILING_LIST_SPEC.md" target="_blank">TOOL_MAILING_LIST_SPEC.md</a> — Mailing list tool specifications</li>
+          <li style="padding: 12px 0;"><a href="/static/business-plan/TOOL_SOCIAL_MEDIA_SPEC.md" target="_blank">TOOL_SOCIAL_MEDIA_SPEC.md</a> — Social media tool specifications</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>Groove Therapy Business Plan &middot; Created March 2026 &middot; <a href="/">Back to Website</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
