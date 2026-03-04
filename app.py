@@ -6,8 +6,10 @@ import base64
 import json
 import os
 from email.mime.text import MIMEText
+from pathlib import Path
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, abort
+import markdown
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -45,6 +47,44 @@ def index():
 @app.route("/bplan")
 def business_plan():
     return render_template("business_plan.html")
+
+
+@app.route("/bplan/<slug>")
+def business_plan_doc(slug):
+    """Render a business plan markdown document as HTML."""
+    # Sanitize slug to prevent directory traversal
+    if ".." in slug or "/" in slug:
+        abort(400)
+    
+    # Map slug to filename
+    slug_to_file = {
+        "quick-start": "00_QUICK_START.md",
+        "executive-summary": "01_EXECUTIVE_SUMMARY.md",
+        "mailing-list": "02_MAILING_LIST_STRATEGY.md",
+        "social-media": "03_SOCIAL_MEDIA_STRATEGY.md",
+        "venue-booking": "04_VENUE_BOOKING_STRATEGY.md",
+        "corporate-gigs": "05_CORPORATE_GIG_STRATEGY.md",
+        "festival": "06_SACRAMENTO_JAZZ_FESTIVAL_PLAN.md",
+        "mailing-list-tool": "TOOL_MAILING_LIST_SPEC.md",
+        "social-media-tool": "TOOL_SOCIAL_MEDIA_SPEC.md",
+    }
+    
+    if slug not in slug_to_file:
+        abort(404)
+    
+    filename = slug_to_file[slug]
+    filepath = Path(__file__).parent / "static" / "business-plan" / filename
+    
+    if not filepath.exists():
+        abort(404)
+    
+    # Read and convert markdown to HTML
+    with open(filepath, "r") as f:
+        content = f.read()
+    
+    html_content = markdown.markdown(content, extensions=["tables", "fenced_code"])
+    
+    return render_template("business_plan_doc.html", content=html_content, title=filename)
 
 
 @app.route("/api/contact", methods=["POST"])
