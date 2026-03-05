@@ -150,6 +150,21 @@ main {
 .signup-form iframe {
   max-width: 100%;
   width: 100%;
+  height: auto;
+  min-height: 400px;
+}
+
+@media (max-width: 768px) {
+  .signup-form {
+    padding: 24px;
+    min-height: auto;
+  }
+  
+  .signup-form iframe {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+  }
 }
 
 .privacy-note {
