@@ -24,6 +24,14 @@ GMAIL_CLIENT_ID = os.environ.get("GMAIL_CLIENT_ID", "")
 GMAIL_CLIENT_SECRET = os.environ.get("GMAIL_CLIENT_SECRET", "")
 
 app = Flask(__name__)
+
+
+# ── Redirect apex domain to www ─────────────────────────────────────────────
+@app.before_request
+def redirect_to_www():
+    host = request.host
+    if host == "groovetherapy.live":
+        return redirect(f"https://www.groovetherapy.live{request.path}", code=301)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "groove-therapy-dev-key-change-in-production")
 
 
