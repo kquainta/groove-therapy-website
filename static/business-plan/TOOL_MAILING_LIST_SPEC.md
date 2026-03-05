@@ -16,29 +16,43 @@ Build a lightweight mailing list system that allows:
 
 ## Architecture Decision
 
-### Option A: Mailchimp (Recommended for MVP)
+### Option A: Brevo (Recommended) ⭐
 
 **Pros:**
-- Free tier up to 500 subscribers
-- Built-in email templates
-- API integration (if we want custom website form)
-- Good analytics
-- Reliable, industry standard
+- ✅ **Unlimited emails** on free tier (no subscriber caps)
+- ✅ **Automation workflows** on free tier (welcome sequences, triggers)
+- ✅ **Professional templates** and builder
+- ✅ **SMS integration** (future capability)
+- ✅ **Better segmentation** for local vs. remote fans
+- ✅ **SMTP access** for website integration
+- ✅ **Stays free longer** than competitors
 
 **Cons:**
-- Limited customization
-- Not ideal long-term as you scale
-- Limited segmentation on free tier
+- UI is slightly more complex than Mailchimp
+- Smaller ecosystem (but growing fast)
+
+**Cost:** FREE up to 20,000 emails/month, then affordable scaling ($20-100+/month for premium)
+
+### Option B: Mailchimp (If you prefer simpler UI)
+
+**Pros:**
+- Simpler interface
+- More templates
+- Larger community
+
+**Cons:**
+- Free tier caps at 500 subscribers
+- Limited automation on free tier
+- Not ideal long-term
 
 **Cost:** Free until 500 subscribers, then $20-100+/month
 
-### Option B: ConvertKit
+### Option C: ConvertKit
 
 **Pros:**
 - Creator-focused (great for artists)
 - Better segmentation
 - Landing pages + email builder
-- Affiliate program (future revenue)
 
 **Cons:**
 - $25/month minimum
@@ -46,55 +60,48 @@ Build a lightweight mailing list system that allows:
 
 **Cost:** $25-300+/month depending on features
 
-### Option C: Custom-Built (Long-term)
+---
 
-**Pros:**
-- Full control
-- Can integrate directly with website
-- Owned data
-- Scalable
+## Recommendation: Brevo + Long-term Scalability
 
-**Cons:**
-- Development time (2-4 weeks)
-- Requires maintenance
-- Need email service provider (AWS SES, SendGrid)
+**Why Brevo:** Unlimited emails on free tier, better automation, professional features as you scale.
 
-**Cost:** $200-500 development + $50-100/month hosting
+**Phase 1 (Now):** Use **Brevo free tier**
+- Unlimited emails (no subscriber caps like Mailchimp)
+- Built-in automation workflows
+- SMS integration (future-proof)
+- Professional segmentation
+- Stays free as you grow to 500+
+
+**Phase 2 (Scaling):** Premium features
+- SMS campaigns ($0.04-0.06/message)
+- Advanced analytics
+- Dedicated support
 
 ---
 
-## Recommendation: Mailchimp MVP + Migration Path
+## Implementation Plan (Brevo)
 
-**Phase 1 (Now):** Use **Mailchimp free tier**
-- Get list growing quickly
-- Low friction to start
-- Validate demand
+### Step 1: Set Up Brevo Account
 
-**Phase 2 (500+ subscribers):** Evaluate upgrade
-- Migrate to ConvertKit OR
-- Build custom solution if budget allows
-
----
-
-## Implementation Plan (Mailchimp)
-
-### Step 1: Set Up Mailchimp Account
-
-1. Create account at mailchimp.com
-2. Create new audience "Groove Therapy"
-3. Set up default signup forms
+1. Create account at brevo.com (free)
+2. Verify your email
+3. Create your first contact list: "Groove Therapy"
+4. Set up sender identity (band email: q@groovetherapy.live)
 
 ### Step 2: Create Website Signup Form
 
-**Option A: Simple Embedded Form**
-- Use Mailchimp's built-in form embed
-- Add to website homepage
-- Minimal customization needed
+**Option A: Brevo Embedded Form (Quick)**
+- Use Brevo's form builder
+- Embed on website homepage
+- Professional templates
+- Built-in validation
 
 **Option B: Custom Website Form (Better UX)**
 - Create custom HTML form on website
-- Uses Mailchimp API to add subscribers
-- More professional appearance
+- Use Brevo's API to add subscribers
+- More control over design
+- Integrates with automation
 
 **Form Fields:**
 ```
@@ -114,80 +121,55 @@ function validateEmail(email) {
 // Check if blacklisted/spam email provider
 ```
 
-**Anti-Spam:**
-- Rate limit: Max 5 signups per IP per hour
-- Check against known spam providers
-- Double opt-in (require email confirmation)
+**Anti-Spam (Brevo handles most of this):**
+- Built-in spam detection
+- Double opt-in option (recommended)
+- Rate limiting on forms
+- Email verification step
 
-### Step 3: Create Welcome Email Sequence
+### Step 3: Create Welcome Email Automation
+
+Brevo's **Automation Workflows** are perfect for this:
 
 **Email 1: Welcome (Immediate)**
-```
-Subject: Welcome to Groove Therapy!
-
-Hi {{FNAME}},
-
-Thanks for signing up! You're now part of the Groove Therapy community.
-
-Here's what to expect:
-📬 Gig announcements (never spam — just dates & venues)
-🎵 Behind-the-scenes stories from the band
-🎷 Jazz tips & music spotlights
-💌 Monthly newsletter with upcoming events
-
-In the meantime, follow us on social:
-- Instagram: @groovetherapysac
-- Facebook: Groove Therapy
-
-See you at a show soon!
-
-Best,
-Kevin & The Groove Therapy Band
-```
+- **Trigger:** When contact added to list
+- **Subject:** Welcome to Groove Therapy!
+- **Content:**
+  ```
+  Hi {{FIRSTNAME}},
+  
+  Thanks for signing up! You're now part of the Groove Therapy community.
+  
+  Here's what to expect:
+  📬 Gig announcements (never spam — just dates & venues)
+  🎵 Behind-the-scenes stories from the band
+  🎷 Jazz tips & music spotlights
+  💌 Monthly newsletter with upcoming events
+  
+  Follow us:
+  - Instagram: @groovetherapysac
+  - Facebook: Groove Therapy
+  
+  See you at a show soon!
+  Best, Kevin & Groove Therapy
+  ```
 
 **Email 2: Band Story (Day 3)**
-```
-Subject: Meet Groove Therapy 🎷
-
-Hi {{FNAME}},
-
-A lot of you are wondering: who are these guys?
-
-Groove Therapy is Sacramento's smooth jazz band, formed in [YEAR] with a mission to bring quality live music to our community. We play everything from jazz standards to original compositions, all with a vibe that's sophisticated but never stuffy.
-
-[2-3 paragraph origin story]
-
-Watch us live: [Video Link]
-
-Next gig: [Date] @ [Venue]
-
-See you soon,
-Kevin
-```
+- **Trigger:** 3 days after signup
+- **Subject:** Meet Groove Therapy 🎷
+- **Content:** Band origin story, video link, next gig info
 
 **Email 3: Exclusive Content (Day 7)**
-```
-Subject: Exclusive: Behind-the-Scenes with Groove Therapy 🎬
+- **Trigger:** 7 days after signup
+- **Subject:** Exclusive: Behind-the-Scenes with Groove Therapy 🎬
+- **Content:** Exclusive audio/video clip, next gig
 
-Hi {{FNAME}},
-
-As a subscriber, you get exclusive access to content we don't share anywhere else.
-
-[Attach exclusive video or audio clip]
-
-This week we recorded an acoustic version of [Song] — enjoy!
-
-Next gig: [Date] @ [Venue]
-
-Best,
-Kevin
-```
-
-**Setup in Mailchimp:**
-1. Automations > Welcome Series
-2. Trigger: When someone joins audience
-3. Add 3 emails (immediately, day 3, day 7)
-4. Test sequence before going live
+**Setup in Brevo:**
+1. Go to Automation > Workflows
+2. Create new workflow: "Welcome Sequence"
+3. Trigger: Contact added to "Groove Therapy" list
+4. Add 3 emails with delays (0 days, 3 days, 7 days)
+5. Test with yourself before activating
 
 ### Step 4: Create Monthly Newsletter Template
 
@@ -246,9 +228,9 @@ Kevin & Groove Therapy
 **Process:**
 1. Lenny prepares newsletter content
 2. Kevin reviews + approves
-3. Lenny loads into Mailchimp template
+3. Lenny loads into Brevo email editor
 4. Schedule for 1st of month, 10am
-5. Send!
+5. Send! (Brevo handles delivery, tracking)
 
 ### Step 5: Analytics & Tracking
 
@@ -259,9 +241,11 @@ Kevin & Groove Therapy
 - Bounce Rate (keep <2%)
 - Subscriber Growth (track additions/removals)
 
-**In Mailchimp:**
-- Automations > All Campaigns > View Reports
-- Look for trends (what content performs best?)
+**In Brevo:**
+- Dashboard > Campaigns > View detailed reports
+- Track automation performance (welcome sequence opens/clicks)
+- Contact insights (segment by engagement level)
+- Trends (what content performs best?)
 - Adjust next month based on data
 
 ---
@@ -296,40 +280,34 @@ Page Content:
 
 ---
 
-## Migration Path (If Growing Beyond 500)
+## Staying with Brevo as You Scale
 
-### When to Upgrade
+**The great news:** Brevo grows with you. You won't need to migrate!
 
-- Hit 400+ active subscribers
-- Want advanced segmentation
-- Need better automation
-- Adding other content (blog, downloads)
+### Brevo's Scaling Features
 
-### Options at Scale
+**Free tier (always):**
+- Unlimited emails (up to 300/day)
+- Automation workflows
+- Basic segmentation
+- Good for 0-20,000 contacts
 
-1. **ConvertKit** ($25-100/month)
-   - Better segmentation, landing pages
-   - Creator-friendly interface
-   - Can offer exclusive content/Patreon-style
+**Plus tier ($20-60/month at scale):**
+- Priority support
+- Advanced segmentation
+- SMS campaigns
+- Dedicated IP (if needed)
+- Perfect for 20k-100k contacts
 
-2. **Custom Solution** (Build your own)
-   ```
-   Technology Stack:
-   - Frontend: Simple React form
-   - Backend: Node.js + Express
-   - Email: SendGrid or AWS SES API
-   - Database: MongoDB or PostgreSQL
-   - Hosting: Vercel, Heroku, or AWS
-   
-   Timeline: 2-4 weeks development
-   Cost: $200-500 dev + $50-150/month ops
-   ```
+**No need to switch platforms** — just upgrade plan as you grow.
 
-3. **Substack**
-   - Free newsletter hosting
-   - Built-in subscriber management
-   - Can monetize later
-   - Less customizable but simpler
+### Why Brevo Beats Migration
+
+1. **No data loss** — everything stays in place
+2. **No platform learning curve** — you're already comfortable
+3. **Same tools scale** — automation grows with you
+4. **SMS ready** — if you want text alerts later
+5. **Cost-effective** — you only pay for what you use
 
 ---
 
@@ -337,9 +315,9 @@ Page Content:
 
 | Week | Action |
 |------|--------|
-| **Week 1** | Create Mailchimp account, set up audience |
+| **Week 1** | Create Brevo account, set up contact list |
 | **Week 2** | Create signup form, add to website |
-| **Week 3** | Set up welcome email sequence |
+| **Week 3** | Set up welcome automation workflow |
 | **Week 4** | Create first monthly newsletter, send |
 | **Ongoing** | Review analytics monthly, optimize content |
 
@@ -349,11 +327,11 @@ Page Content:
 
 | Item | Cost |
 |------|------|
-| Mailchimp (Months 1-6) | Free |
+| Brevo (Free tier, Year 1) | FREE |
 | Website hosting (if needed) | $10-20/mo |
 | Custom domain (optional) | $10-15/year |
 | **TOTAL (Year 1)** | **$60-90** |
-| **Upgrade to ConvertKit (if needed)** | +$25-100/month |
+| **Brevo Plus (when scaling past 20k contacts)** | +$20-60/month |
 
 ---
 
@@ -376,6 +354,7 @@ Page Content:
 
 ## Resources
 
-- Mailchimp docs: mailchimp.com/help
-- Email best practices: [Insert guide link]
-- Signup form templates: [Insert resources]
+- Brevo docs: brevo.com/help
+- Brevo tutorials: brevo.com/learning-center
+- Email best practices: guides.brevo.com
+- Signup form templates: Built-in Brevo form builder
