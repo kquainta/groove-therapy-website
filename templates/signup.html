@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Our Mailing List | Groove Therapy</title>
+<meta name="description" content="Sign up for Groove Therapy's mailing list. Get tour dates, behind-the-scenes content, and exclusive updates delivered to your inbox.">
+<link rel="icon" type="image/png" href="/static/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  background: #0a0a0f;
+  color: #d4cfc6;
+  line-height: 1.7;
+}
+a { color: #c9a84c; text-decoration: none; transition: color 0.3s; }
+a:hover { color: #e8c86c; }
+
+/* Navigation */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3em;
+  color: #c9a84c;
+  letter-spacing: 1px;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: #a09880;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: #c9a84c; }
+.nav-back {
+  background: rgba(201,168,76,0.1);
+  color: #c9a84c !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+.nav-back:hover { background: rgba(201,168,76,0.2); }
+
+/* Hero/Header */
+header {
+  margin-top: 70px;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0a0a18 0%, #1a1020 30%, #0f0a1a 70%, #0a0a0f 100%);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  text-align: center;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8em;
+  color: #e8e0d0;
+  margin-bottom: 0.3em;
+  background: linear-gradient(135deg, #e8e0d0, #c9a84c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+header p {
+  color: #a09880;
+  font-size: 1.1em;
+}
+
+/* Main content */
+main {
+  padding: 60px 0;
+}
+
+.signup-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.signup-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8em;
+  color: #e8e0d0;
+  margin-bottom: 0.5em;
+}
+
+.signup-content p {
+  color: #908870;
+  font-size: 1.05em;
+  margin-bottom: 1.2em;
+  line-height: 1.8;
+}
+
+.benefits {
+  list-style: none;
+  margin: 2em 0;
+}
+
+.benefits li {
+  padding: 12px 0;
+  color: #b0a890;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.benefits li::before {
+  content: "✓ ";
+  color: #c9a84c;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.benefits li:last-child {
+  border-bottom: none;
+}
+
+.signup-form {
+  background: #12121a;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.signup-form iframe {
+  max-width: 100%;
+  width: 100%;
+}
+
+.privacy-note {
+  font-size: 0.85em;
+  color: #605840;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  text-align: center;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+  margin: 80px 0;
+}
+
+/* Why join */
+.why-section {
+  background: #08080d;
+  padding: 60px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+
+.why-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6em;
+  color: #e8e0d0;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.why-card {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.why-card h4 {
+  color: #c9a84c;
+  font-size: 1.1em;
+  margin-bottom: 12px;
+}
+
+.why-card p {
+  color: #908870;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background: #06060a;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding: 40px 0;
+  text-align: center;
+  color: #605840;
+  font-size: 0.85em;
+  margin-top: 80px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 { font-size: 1.8em; }
+  header { padding: 50px 0; }
+  
+  .signup-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .signup-content h2 {
+    font-size: 1.5em;
+  }
+  
+  main { padding: 40px 0; }
+  
+  .divider { margin: 50px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/static/images/logo.png" alt="Groove Therapy" style="height: 36px; width: auto; vertical-align: middle; filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1); drop-shadow(0 1px 3px rgba(0,0,0,0.8));"></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#contact">Book Us</a></li>
+      <li><a href="/signup" style="color: #c9a84c; font-weight: 500;">Mailing List</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <h1>Stay Connected</h1>
+    <p>Join our mailing list for tour dates, behind-the-scenes content, and exclusive updates</p>
+  </div>
+</header>
+
+<!-- Main -->
+<main>
+  <div class="container">
+    <div class="signup-section">
+      <div class="signup-content">
+        <h2>Get the Latest from Groove Therapy</h2>
+        <p>Join our community of jazz fans and get direct updates about upcoming performances, exclusive content, and special announcements.</p>
+        
+        <ul class="benefits">
+          <li>Tour dates & venue announcements (never spam)</li>
+          <li>Behind-the-scenes stories & photos</li>
+          <li>Monthly newsletters with exclusive content</li>
+          <li>Early access to special events</li>
+          <li>Direct connection with the band</li>
+        </ul>
+        
+        <p style="margin-top: 2em; font-size: 0.95em; color: #605840;">
+          We respect your inbox. Unsubscribe anytime with one click.
+        </p>
+      </div>
+      
+      <div class="signup-form">
+        <iframe width="540" height="305" src="https://f2732159.sibforms.com/serve/MUIFAKOgYp5hW5rsiXYy9G5r21GtKPozIkn5Rg-X8WQO-O3bv7koAi63jJwdxurgEHBolKqJ7fhnj7WQYbaxny5kFEVVKtGf-7tEAwOcoZhIYhgOS6wtGLnktxGCQ3Bd03fFpL2VY9vjVquBLbbxwULvTlwdyIr0mA5ucEAlgJnsF1GIjqX3d1Sat5OeW2NHPNW5PPQg0kMBZCpnqg==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;max-width: 100%;"></iframe>
+      </div>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <!-- Why Join -->
+    <div class="why-section">
+      <h3>What You'll Get</h3>
+      <div class="why-grid">
+        <div class="why-card">
+          <h4>📍 Gig Announcements</h4>
+          <p>Be the first to know about upcoming performances and special appearances</p>
+        </div>
+        <div class="why-card">
+          <h4>🎬 Behind-the-Scenes</h4>
+          <p>Exclusive stories, photos, and videos from the band's life on and off stage</p>
+        </div>
+        <div class="why-card">
+          <h4>🎷 Jazz Insights</h4>
+          <p>Monthly deep-dives into jazz history, music spotlights, and artist features</p>
+        </div>
+        <div class="why-card">
+          <h4>💌 Direct Connection</h4>
+          <p>Hear directly from Groove Therapy—no algorithm, just real updates</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>Groove Therapy Jazz &middot; Sacramento, California &middot; <a href="/">Back to Website</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

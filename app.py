@@ -58,6 +58,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+
 @app.route("/bplan/login", methods=["GET", "POST"])
 def bplan_login():
     """Login page for business plan."""
