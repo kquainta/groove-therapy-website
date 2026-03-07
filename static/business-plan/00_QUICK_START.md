@@ -19,12 +19,12 @@ This folder contains a complete 12-month business strategy for Groove Therapy. B
 
 ### Tasks
 
-**Mailchimp Setup (1 hour)**
-- [ ] Go to mailchimp.com
+**Brevo Setup (1 hour)**
+- [ ] Go to brevo.com
 - [ ] Create account with band email (q@groovetherapy.live)
-- [ ] Create audience "Groove Therapy"
-- [ ] Set up basic welcome email (use template from 02_MAILING_LIST_STRATEGY.md)
-- [ ] Create embedded form for website (or plan custom form)
+- [ ] Create contact list "Groove Therapy"
+- [ ] Set up welcome automation workflow (use template from 02_MAILING_LIST_STRATEGY.md)
+- [ ] Create embedded form for website using Brevo form builder (or plan custom form)
 
 **Social Media Accounts (30 minutes)**
 - [ ] Create Instagram account: @groovetherapysac (or variation)
@@ -304,7 +304,7 @@ This folder contains a complete 12-month business strategy for Groove Therapy. B
 ## Decision Points (Ask Kevin)
 
 **This Week:**
-- [ ] Mailchimp or ConvertKit? (I recommend Mailchimp to start)
+- [ ] Brevo setup complete? (Recommended over Mailchimp - unlimited emails on free tier)
 - [ ] Instagram handle preference? (@groovetherapysac is ideal)
 - [ ] Band member names for bio?
 - [ ] Website domain name? (You own groovetherapy.live already?)
@@ -384,10 +384,10 @@ Start small (mailing list + social media + local venues), prove the model works,
 
 **Questions?** Reach out anytime. I'm here to help execute this plan.
 
-**Next Step:** Start Week 1 (this week). Let me know when you've completed the Mailchimp setup!
+**Next Step:** Start Week 1 (this week). Let me know when you've completed the Brevo setup!
 
 ---
 
 Owner: Lenny  
-Last Updated: March 4, 2026  
+Last Updated: March 6, 2026 (Updated: Mailchimp → Brevo)  
 Review: Weekly with Kevin
